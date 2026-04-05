@@ -8,10 +8,10 @@
       name: nginx
       state: present
       tasks:
-       - name: start service
-         ansible.builtin.service:
-          name: nginx
-          state: started
-          enable: yes
+  - name: start service
+    ansible.builtin.service:
+      name: nginx
+      state: started
+      enable: yes
 
 

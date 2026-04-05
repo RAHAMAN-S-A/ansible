@@ -16,7 +16,24 @@
 
   - name: copy html file
     ansible.builtin.copy:
-      content: "<h1>Hello from Ansible - Success</h1>"
+      content: "<h1>Hello</h1>"
       dest: /usr/share/nginx/html/index.html
 
+  - name: create index.html
+    ansible.builtin.copy:
+        dest: /usr/share/nginx/html/index.html
+        content: |
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <title>Love Message</title>
+          </head>
+          <body style="text-align:center; background-color:black;">
+              <h1 style="color:red; font-size:50px;">
+                  I Love You ❤️
+              </h1>
+          </body>
+          </html>
 
+
+  

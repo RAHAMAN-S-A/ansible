@@ -1,7 +1,6 @@
 
 - name: install packages
   hosts: web
-  connection: web
   become: yes
   tasks:
   - name: install package

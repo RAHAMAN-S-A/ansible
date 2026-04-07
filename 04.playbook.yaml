@@ -2,6 +2,10 @@
 - name: install packages
   hosts: web
   become: yes
+  vars:
+    COURSE: "DevOps with AWS"
+    DURATION: "140HRS"
+    TRAINER: "Sivakumar Reddy"
   tasks:
   - name: install package
     ansible.builtin.package:
@@ -11,3 +15,22 @@
     - mysql
     - nginx
     - zip
+
+  - name: print variables
+    ansible.builtin.debug:
+      msg: "Course is: {{ COURSE }}, Trainer is: {{ TRAINER }}"
+
+  vars_prompt:
+  - name: username
+    prompt: Please enter your username
+    private: false
+
+  - name: password
+    prompt: please enter your password
+    private: true
+  
+  tasks:
+  - name: print info
+    ansible.builtin.debug:
+      msg: "username is: {{ username }}, password is: {{ password }}"
+
